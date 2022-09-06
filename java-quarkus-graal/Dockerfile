@@ -1,11 +1,11 @@
-FROM quay.io/qiotproject/quarkus-ubi-multiarch-builder:latest-java17 AS builder
+#FROM quay.io/qiotproject/quarkus-ubi-multiarch-builder:latest-java17 AS builder
+FROM ghcr.io/graalvm/native-image:ol8-java17-22 AS builder
 RUN mkdir -p /usr/src/app
-COPY pom.xml /usr/src/app/
-RUN mvn -f /usr/src/app/pom.xml -B de.qaware.maven:go-offline-maven-plugin:1.2.5:resolve-dependencies
-COPY src /usr/src/app/src
-RUN mvn -f /usr/src/app/pom.xml -Pnative clean package
+WORKDIR /usr/src/app
+COPY . .
+RUN ./mvnw -f pom.xml -Pnative clean package
 
-FROM quay.io/qiotproject/ubi-multiarch:7.0
+FROM debian:stable-slim
 WORKDIR /work/
 COPY --from=builder /usr/src/app/target/*-runner /work/application
 
