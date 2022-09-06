@@ -1,0 +1,74 @@
+- name: "Fetch multiplication 1 - iteration: {{ iteration }}"
+  request:
+    url: /calc/mul/3/4
+  assign: mul1
+
+- name: "Assert multiplication 1 response code"
+  assert: 
+    key: mul1.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert multiplication 1 result"
+  assert:
+    key: mul1.body.result
+    value: 12
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+    
+- name: "Call multiplication 2 - iteration: {{ iteration }}"
+  request:
+    url: /calc/mul/5/6
+  assign: mul2
+
+- name: "Assert multiplication 2 response code"
+  assert: 
+    key: mul2.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert multiplication 2 result"
+  assert:
+    key: mul2.body.result
+    value: 30
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+
+- name: "Call multiplication 3 - iteration: {{ iteration }}"
+  request:
+    url: /calc/mul/4/0
+  assign: mul3
+
+- name: "Assert multiplication 3 response code"
+  assert: 
+    key: mul3.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert multiplication 3 result"
+  assert:
+    key: mul3.body.result
+    value: 0
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay

@@ -1,0 +1,74 @@
+- name: "Fetch division 1 - iteration: {{ iteration }}"
+  request:
+    url: /calc/div/9/3
+  assign: div1
+
+- name: "Assert division 1 response code"
+  assert: 
+    key: div1.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert division 1 result"
+  assert:
+    key: div1.body.result
+    value: 3
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+    
+- name: "Call division 2 - iteration: {{ iteration }}"
+  request:
+    url: /calc/div/9/4
+  assign: div2
+
+- name: "Assert division 2 response code"
+  assert: 
+    key: div2.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert division 2 result"
+  assert:
+    key: div2.body.result
+    value: 2
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+
+- name: "Call division 3 - iteration: {{ iteration }}"
+  request:
+    url: /calc/div/3/0
+  assign: div3
+
+- name: "Assert division 3 response code"
+  assert: 
+    key: div3.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert division 3 result"
+  assert:
+    key: div3.body.error
+    value: "Division by zero"
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay

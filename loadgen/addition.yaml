@@ -1,0 +1,50 @@
+- name: "Fetch addition 1 - iteration: {{ iteration }}"
+  request:
+    url: /calc/add/1/2
+  assign: add1
+
+- name: "Assert addition 1 response code"
+  assert: 
+    key: add1.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert addition 1 result"
+  assert:
+    key: add1.body.result
+    value: 3
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+    
+- name: "Call addition 2 - iteration: {{ iteration }}"
+  request:
+    url: /calc/add/5/17
+  assign: add2
+
+- name: "Assert addition 2 response code"
+  assert: 
+    key: add2.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert addition 2 result"
+  assert:
+    key: add2.body.result
+    value: 22
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+

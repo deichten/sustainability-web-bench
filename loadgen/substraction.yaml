@@ -1,0 +1,50 @@
+- name: "Fetch substraction 1 - iteration: {{ iteration }}"
+  request:
+    url: /calc/sub/5/3
+  assign: sub1
+
+- name: "Assert substraction 1 response code"
+  assert: 
+    key: sub1.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert substraction 1 result"
+  assert:
+    key: sub1.body.result
+    value: 2
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+    
+- name: "Call substraction 2 - iteration: {{ iteration }}"
+  request:
+    url: /calc/sub/23/7
+  assign: sub2
+
+- name: "Assert substraction 2 response code"
+  assert: 
+    key: sub2.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert substraction 2 result"
+  assert:
+    key: sub2.body.result
+    value: 16
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+

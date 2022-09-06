@@ -1,0 +1,21 @@
+---
+
+concurrency: 1
+base: 'http://target:8080'
+iterations: 3
+rampup: 0
+
+plan:
+  - name: Include addition
+    include: ./addition.yaml
+
+  - name: Include substraction
+    include: ./substraction.yaml
+
+  - name: Include multiplication
+    include: ./multiplication.yaml
+
+  - name: Include division
+    include: ./division.yaml
+
+  
