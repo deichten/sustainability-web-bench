@@ -1,4 +1,3 @@
-#FROM quay.io/qiotproject/quarkus-ubi-multiarch-builder:latest-java17 AS builder
 FROM ghcr.io/graalvm/native-image:ol8-java17-22 AS builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
