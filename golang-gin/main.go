@@ -55,7 +55,7 @@ func main() {
 		if ferr != nil || serr != nil {
 			c.JSON(404, gin.H{"error": "unparsable"})
 		} else if second == 0 {
-			c.JSON(404, gin.H{
+			c.JSON(200, gin.H{
 				"error": "Division by zero",
 			})
 		} else {
