@@ -4,7 +4,6 @@ RUN apt update && \
     apt install -y --no-install-recommends pkg-config libssl-dev && \
     cargo install drill
 
-#FROM debian:stable-slim 
 FROM debian:stable-slim
 
 WORKDIR /root
