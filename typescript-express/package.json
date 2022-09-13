@@ -1,0 +1,28 @@
+{
+    "name": "typescript-express",
+    "version": "1.0.0",
+    "description": "Simple webservice mimicking a calculator to be used in sustainability web bench",
+    "main": "index.js",
+    "scripts": {
+      "build": "tsc",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/deichten/sustainability-web-bench/typescript-express"
+    },
+    "keywords": [
+      "sustainability"
+    ],
+    "author": "Daniel Eichten",
+    "license": "BSD-3-Clause",
+    "dependencies": {
+      "express": "^4.18.1"
+    },
+    "devDependencies": {
+      "@types/express": "^4.17.13",
+      "@types/node": "^18.7.17",
+      "ts-node": "^10.9.1",
+      "typescript": "^4.8.3"
+    }
+  }
