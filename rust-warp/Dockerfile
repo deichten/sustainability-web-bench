@@ -5,7 +5,7 @@ RUN mkdir -p /app
 COPY . .
 RUN cargo build -r
 
-FROM debian:bullseye-slim 
+FROM debian:stable-slim 
 
 WORKDIR /app
 COPY --from=builder /app/target/release/rust-warp /app/rust-warp
