@@ -70,3 +70,10 @@ Depending on your machine this might take some time. As you can see in the [buil
 - [Drill](https://github.com/fcsonline/drill) – a rather simple rust based performance testing tool
 - [PowerTOP](https://github.com/fenrus75/powertop) – to measure energy consumption as this should give the highest compatibility
 
+## TODO
+
+- Build tooling scripting around everything 
+- Make PowerTOP working on various machines (maybe find alternative)
+- Add additional frameworks from node.js, Python, PHP
+- Add Cloud configs to deploy load generator and framework under review onto different machines
+- a lot more ...
