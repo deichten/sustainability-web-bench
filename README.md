@@ -66,7 +66,7 @@ Depending on your machine this might take some time. As you can see in the [buil
 
 ## Tooling used
 
-- [Podman](https://podman.io) – for building and running the containers
+- [Podman](https://podman.io) – for building and running the containers (but feel free to also use ``nerdctl`` or good ole ``docker-cli`` but be aware that you will have to change the above command and that this might break in the future.)
 - [Drill](https://github.com/fcsonline/drill) – a rather simple rust based performance testing tool
 - [PowerTOP](https://github.com/fenrus75/powertop) – to measure energy consumption as this should give the highest compatibility
 
