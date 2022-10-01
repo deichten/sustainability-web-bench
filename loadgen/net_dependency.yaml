@@ -1,0 +1,50 @@
+- name: "Testing network depency 1 - iteration: {{ iteration }}"
+  request:
+    url: /net_dependency
+  assign: net1
+
+- name: "Assert network dependency 1 response code"
+  assert: 
+    key: net1.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert network dependency 1 result"
+  assert:
+    key: net1.body.calculationresult
+    value: 9227465
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+    
+- name: "Call network dependency 2 - iteration: {{ iteration }}"
+  request:
+    url: /net_dependency
+  assign: net2
+
+- name: "Assert network dependency 2 response code"
+  assert: 
+    key: net2.status
+    value: 200
+  tags:
+    - assert
+
+- name: "Assert network dependency 2 result"
+  assert:
+    key: net2.body.calculationresult
+    value: 9227465
+  tags:
+    - assert
+
+- name: "Wait a second"
+  delay: 
+    seconds: 1
+  tags:
+    - delay
+

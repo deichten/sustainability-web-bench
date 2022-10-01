@@ -1,8 +1,14 @@
 import express, { Application, Request, Response } from 'express'
+import axios from 'axios'
 
 const app: Application = express()
 
 const port: number = 8080
+const inetDepencencyUrl = "http://0.0.0.0:3001/compute"
+
+app.get('/net_dependency',(req: Request, res: Response) => {
+    axios.get(inetDepencencyUrl).then((response) => res.send(response.data))
+})
 
 app.get('/calc/add/:a/:b', (req: Request, res: Response) => {
     res.send({
